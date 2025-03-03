@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 import java.time.LocalDateTime
 
-@RequestMapping("/api/v2/example")
 @RestController
+@RequestMapping("/api/v2/example")
 class HelloWorld {
 
     @GetMapping("/delayed")
@@ -17,15 +17,16 @@ class HelloWorld {
         delay(50000)
         return "Hello World " + LocalDateTime.now()
     }
-
     @GetMapping("/memory")
     suspend fun helloWorldFromMemory(): String {
         return "this is from memory " + LocalDateTime.now()
     }
-
     @GetMapping("/do-blocking-external-call")
     suspend fun get(): String = coroutineScope {
         " https://www.youtube.com/watch?v=hQrFfwT1IMo&t=1514s " +
-                "https://docs.spring.io/spring-framework/reference/languages/kotlin/coroutines.html"
+                "https://docs.spring.io/spring-framework/reference/languages/kotlin/coroutines.html " +
+                "project.basePath/trace-configuration.txt " +
+                "This simply means do whatever here like calling http://httpstat.us/200?sleep=50000 but make sure " +
+                "you use RANDOM sleep otherwise fixed delay is quite same :):):)"
     }
 }
