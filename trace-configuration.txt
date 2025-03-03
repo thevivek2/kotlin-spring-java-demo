@@ -1,0 +1,62 @@
+This is when spring and suspend configuration being done >>>>>>>> Serlvet Stack, Suspend, Kotlin
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2025-03-03T11:17:22.518+05:45 ERROR 25332 --- [demo] [           main] o.s.boot.SpringApplication               : Application run failed
+
+org.springframework.beans.factory.BeanCreationException: Error creating bean with name 'requestMappingHandlerAdapter' defined in class path resource [org/springframework/boot/autoconfigure/web/servlet/WebMvcAutoConfiguration$EnableWebMvcConfiguration.class]: Failed to instantiate [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter]: Factory method 'requestMappingHandlerAdapter' threw exception with message: kotlinx/coroutines/reactive/ReactiveFlowKt
+        at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:657) ~[spring-beans-6.2.1.jar!/:6.2.1]
+        at org.springframework.beans.factory.support.ConstructorResolver.instantiateUsingFactoryMethod(ConstructorResolver.java:645) ~[spring-beans-6.2.1.jar!/:6.2.1]        
+        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.instantiateUsingFactoryMethod(AbstractAutowireCapableBeanFactory.java:1357) ~[spring-beans-6.2.1.jar!/:6.2.1]
+        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBeanInstance(AbstractAutowireCapableBeanFactory.java:1187) ~[spring-beans-6.2.1.jar!/:6.2.1]
+        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:563) ~[spring-beans-6.2.1.jar!/:6.2.1]
+        at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:523) ~[spring-beans-6.2.1.jar!/:6.2.1]
+        at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:336) ~[spring-beans-6.2.1.jar!/:6.2.1]
+        at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:289) ~[spring-beans-6.2.1.jar!/:6.2.1]       
+        at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:334) ~[spring-beans-6.2.1.jar!/:6.2.1]
+        at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:199) ~[spring-beans-6.2.1.jar!/:6.2.1]
+        at org.springframework.beans.factory.support.DefaultListableBeanFactory.instantiateSingleton(DefaultListableBeanFactory.java:1122) ~[spring-beans-6.2.1.jar!/:6.2.1]  
+        at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingleton(DefaultListableBeanFactory.java:1093) ~[spring-beans-6.2.1.jar!/:6.2.1]
+        at org.springframework.beans.factory.support.DefaultListableBeanFactory.preInstantiateSingletons(DefaultListableBeanFactory.java:1030) ~[spring-beans-6.2.1.jar!/:6.2.1]
+        at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:987) ~[spring-context-6.2.1.jar!/:6.2.1]
+        at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:627) ~[spring-context-6.2.1.jar!/:6.2.1]
+        at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:146) ~[spring-boot-3.4.1.jar!/:3.4.1]
+        at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:752) ~[spring-boot-3.4.1.jar!/:3.4.1]
+        at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:439) ~[spring-boot-3.4.1.jar!/:3.4.1]
+        at org.springframework.boot.SpringApplication.run(SpringApplication.java:318) ~[spring-boot-3.4.1.jar!/:3.4.1]
+        at org.springframework.boot.SpringApplication.run(SpringApplication.java:1361) ~[spring-boot-3.4.1.jar!/:3.4.1]
+        at org.springframework.boot.SpringApplication.run(SpringApplication.java:1350) ~[spring-boot-3.4.1.jar!/:3.4.1]
+        at com.example.demo.DemoApplication.main(DemoApplication.java:10) ~[!/:2.0.1-SNAPSHOT]
+        at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+        at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+        at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+        at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+        at org.springframework.boot.loader.launch.Launcher.launch(Launcher.java:102) ~[demo-2.0.1-SNAPSHOT.jar:2.0.1-SNAPSHOT]
+        at org.springframework.boot.loader.launch.Launcher.launch(Launcher.java:64) ~[demo-2.0.1-SNAPSHOT.jar:2.0.1-SNAPSHOT]
+        at org.springframework.boot.loader.launch.JarLauncher.main(JarLauncher.java:40) ~[demo-2.0.1-SNAPSHOT.jar:2.0.1-SNAPSHOT]
+Caused by: org.springframework.beans.BeanInstantiationException: Failed to instantiate [org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter]: Factory method 'requestMappingHandlerAdapter' threw exception with message: kotlinx/coroutines/reactive/ReactiveFlowKt
+        at org.springframework.beans.factory.support.SimpleInstantiationStrategy.lambda$instantiate$0(SimpleInstantiationStrategy.java:199) ~[spring-beans-6.2.1.jar!/:6.2.1] 
+        at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiateWithFactoryMethod(SimpleInstantiationStrategy.java:88) ~[spring-beans-6.2.1.jar!/:6.2.1]
+        at org.springframework.beans.factory.support.SimpleInstantiationStrategy.instantiate(SimpleInstantiationStrategy.java:168) ~[spring-beans-6.2.1.jar!/:6.2.1]
+        at org.springframework.beans.factory.support.ConstructorResolver.instantiate(ConstructorResolver.java:653) ~[spring-beans-6.2.1.jar!/:6.2.1]
+        ... 28 common frames omitted
+Caused by: java.lang.NoClassDefFoundError: kotlinx/coroutines/reactive/ReactiveFlowKt
+        at org.springframework.core.ReactiveAdapterRegistry$CoroutinesRegistrar.registerAdapters(ReactiveAdapterRegistry.java:358) ~[spring-core-6.2.1.jar!/:6.2.1]
+        at org.springframework.core.ReactiveAdapterRegistry.<init>(ReactiveAdapterRegistry.java:106) ~[spring-core-6.2.1.jar!/:6.2.1]
+        at org.springframework.core.ReactiveAdapterRegistry.getSharedInstance(ReactiveAdapterRegistry.java:232) ~[spring-core-6.2.1.jar!/:6.2.1]
+        at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.<init>(RequestMappingHandlerAdapter.java:192) ~[spring-webmvc-6.2.1.jar!/:6.2.1]
+        at org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport.createRequestMappingHandlerAdapter(WebMvcConfigurationSupport.java:694) ~[spring-webmvc-6.2.1.jar!/:6.2.1]
+        at org.springframework.boot.autoconfigure.web.servlet.WebMvcAutoConfiguration$EnableWebMvcConfiguration.createRequestMappingHandlerAdapter(WebMvcAutoConfiguration.java:414) ~[spring-boot-autoconfigure-3.4.1.jar!/:3.4.1]
+        at org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport.requestMappingHandlerAdapter(WebMvcConfigurationSupport.java:662) ~[spring-webmvc-6.2.1.jar!/:6.2.1]
+        at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method) ~[na:na]
+        at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77) ~[na:na]
+        at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43) ~[na:na]
+        at java.base/java.lang.reflect.Method.invoke(Method.java:568) ~[na:na]
+        at org.springframework.beans.factory.support.SimpleInstantiationStrategy.lambda$instantiate$0(SimpleInstantiationStrategy.java:171) ~[spring-beans-6.2.1.jar!/:6.2.1] 
+        ... 31 common frames omitted
+Caused by: java.lang.ClassNotFoundException: kotlinx.coroutines.reactive.ReactiveFlowKt
+        at java.base/java.net.URLClassLoader.findClass(URLClassLoader.java:445) ~[na:na]
+        at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:587) ~[na:na]
+        at org.springframework.boot.loader.net.protocol.jar.JarUrlClassLoader.loadClass(JarUrlClassLoader.java:107) ~[demo-2.0.1-SNAPSHOT.jar:2.0.1-SNAPSHOT]
+        at org.springframework.boot.loader.launch.LaunchedClassLoader.loadClass(LaunchedClassLoader.java:91) ~[demo-2.0.1-SNAPSHOT.jar:2.0.1-SNAPSHOT]
+        at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:520) ~[na:na]
+        ... 43 common frames omitted

@@ -1,5 +1,6 @@
 package com.example.demo
 
+import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.delay
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
@@ -20,5 +21,11 @@ class HelloWorld {
     @GetMapping("/memory")
     suspend fun helloWorldFromMemory(): String {
         return "this is from memory " + LocalDateTime.now()
+    }
+
+    @GetMapping("/do-blocking-external-call")
+    suspend fun get(): String = coroutineScope {
+        " https://www.youtube.com/watch?v=hQrFfwT1IMo&t=1514s " +
+                "https://docs.spring.io/spring-framework/reference/languages/kotlin/coroutines.html"
     }
 }
