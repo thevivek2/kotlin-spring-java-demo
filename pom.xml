@@ -28,12 +28,14 @@
 		<springdoc-openapi-kotlin.version>1.8.0</springdoc-openapi-kotlin.version>
 	</properties>
 
+
 	<dependencies>
 		<dependency>
 			<groupId>com.microsoft.sqlserver</groupId>
 			<artifactId>mssql-jdbc</artifactId>
 			<version>${mssql-jdbc.version}</version>
 		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-validation</artifactId>
@@ -42,7 +44,6 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-
 		<dependency>
 			<groupId>com.sipios</groupId>
 			<artifactId>spring-search</artifactId>
@@ -85,19 +86,16 @@
 		<dependency>
 			<groupId>org.jetbrains.kotlinx</groupId>
 			<artifactId>kotlinx-coroutines-reactive</artifactId>
-			<version>${kotlinx-coroutines-reactor.version}</version>
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.jetbrains.kotlinx</groupId>
 			<artifactId>kotlinx-coroutines-reactor</artifactId>
-			<version>${kotlinx-coroutines-reactor.version}</version>
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>
 			<groupId>org.jetbrains.kotlinx</groupId>
 			<artifactId>kotlinx-coroutines-core</artifactId>
-			<version>${kotlinx-coroutines-reactor.version}</version>
 		</dependency>
 		<dependency>
 			<groupId>org.springdoc</groupId>
@@ -224,7 +222,7 @@
 			<plugin>
 				<groupId>org.jetbrains.kotlin</groupId>
 				<artifactId>kotlin-maven-plugin</artifactId>
-				<version>2.1.10</version>
+				<version>1.9.25</version>
 				<configuration>
 					<compilerPlugins>
 						<plugin>spring</plugin>
@@ -273,15 +271,6 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>${maven-surefire-plugin.version}</version>
 			</plugin>
-			<!--<plugin>
-				<groupId>org.springframework.cloud</groupId>
-				<artifactId>spring-cloud-contract-maven-plugin</artifactId>
-				<version>4.2.0</version>
-				<extensions>true</extensions>
-				<configuration>
-					<packageWithBaseClasses>com.yco.trade.workstation.base</packageWithBaseClasses>
-				</configuration>
-			</plugin>-->
 		</plugins>
 	</build>
 
