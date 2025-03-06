@@ -30,6 +30,7 @@ class HelloWorld {
     suspend fun get(): String = coroutineScope {
         withContext(Dispatchers.IO) {
             logger.info("This is executed inside Coroutine context with Dispatcher.IO ")
+            logger.info("Do any blocking call - NO PROBLEM ")
             "Vivek22 https://www.youtube.com/watch?v=hQrFfwT1IMo&t=1514s " +
                     "https://docs.spring.io/spring-framework/reference/languages/kotlin/coroutines.html " +
                     "project.basePath/trace-configuration.txt " +
