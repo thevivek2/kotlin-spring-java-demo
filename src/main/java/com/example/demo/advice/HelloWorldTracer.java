@@ -17,9 +17,7 @@ public class HelloWorldTracer {
     public MethodInterceptor jpaTracker() {
         var trace = new CustomizableTraceInterceptor();
         trace.setEnterMessage("Entering $[methodName] $[arguments]");
-        trace.setExitMessage("Exiting $[methodName] $[arguments] Returning $[returnValue]");
-        trace.setLogExceptionStackTrace(true);
-        trace.setUseDynamicLogger(true);
+        trace.setExitMessage("Exiting $[methodName] $[arguments] $[returnValue]");
         trace.setLoggerName("com.example.demo.TraceService");
         return trace;
     }
@@ -27,7 +25,7 @@ public class HelloWorldTracer {
     @Bean
     public DefaultPointcutAdvisor myAdvisor(@Qualifier("traceInterceptor") MethodInterceptor interceptor) {
         var pointcut = new NameMatchMethodPointcut();
-        pointcut.addMethodName("helloWorldFromMemory");
+        pointcut.addMethodName("externalUrlGet");
         return new DefaultPointcutAdvisor(pointcut, interceptor);
     }
 
