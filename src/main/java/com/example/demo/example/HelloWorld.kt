@@ -1,7 +1,11 @@
 package com.example.demo.example
 
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.coroutineScope
 import kotlinx.coroutines.delay
+import kotlinx.coroutines.withContext
+import org.apache.commons.logging.Log
+import org.apache.commons.logging.LogFactory
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
@@ -11,9 +15,10 @@ import java.time.LocalDateTime
 @RequestMapping("/api/v2/example")
 class HelloWorld {
 
+    private val logger: Log = LogFactory.getLog(HelloWorld::class.java)
+
     @GetMapping("/delayed")
     suspend fun helloWorld(): String {
-        System.out.println("hello world");
         delay(50000)
         return "Hello World " + LocalDateTime.now()
     }
@@ -23,10 +28,13 @@ class HelloWorld {
     }
     @GetMapping("/do-blocking-external-call")
     suspend fun get(): String = coroutineScope {
-        " https://www.youtube.com/watch?v=hQrFfwT1IMo&t=1514s " +
-                "https://docs.spring.io/spring-framework/reference/languages/kotlin/coroutines.html " +
-                "project.basePath/trace-configuration.txt " +
-                "This simply means do whatever here like calling http://httpstat.us/200?sleep=50000 but make sure " +
-                "you use RANDOM sleep otherwise fixed delay is quite same :):):)"
+        withContext(Dispatchers.IO) {
+            logger.info("This is executed inside Coroutine context with Dispatcher.IO ")
+            "Vivek22 https://www.youtube.com/watch?v=hQrFfwT1IMo&t=1514s " +
+                    "https://docs.spring.io/spring-framework/reference/languages/kotlin/coroutines.html " +
+                    "project.basePath/trace-configuration.txt " +
+                    "This simply means do whatever here like calling http://httpstat.us/200?sleep=50000 but make sure " +
+                    "you use RANDOM sleep otherwise fixed delay is quite same :):):)"
+        }
     }
 }
