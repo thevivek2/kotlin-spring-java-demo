@@ -19,6 +19,20 @@ class HelloWorld(val client: ExampleRestClient) {
 
     private val logger: Log = LogFactory.getLog(HelloWorld::class.java)
 
+
+    @GetMapping("/external-api")
+    suspend fun get(): ResponseEntity<String> = coroutineScope {
+        logger.info("Lets collect few information from main thread")
+        val reqAttribute = RequestContextHolder.getRequestAttributes()
+        withContext(Dispatchers.IO) {
+            logger.info(" reqAttribute  " + reqAttribute)
+            logger.info(
+                "Thanks... https://www.youtube.com/watch?v=hQrFfwT1IMo&t=1514s \n" +
+                        "https://docs.spring.io/spring-framework/reference/languages/kotlin/coroutines.html")
+            client.externalUrlGet();
+        }
+    }
+
     @GetMapping("/delayed")
     suspend fun delayed(): String = coroutineScope {
         withContext(Dispatchers.Default) {
@@ -42,16 +56,5 @@ class HelloWorld(val client: ExampleRestClient) {
         }
     }
 
-    @GetMapping("/external-api")
-    suspend fun get(): ResponseEntity<String> = coroutineScope {
-        logger.info("Lets collect few information from main thread")
-        val reqAttribute = RequestContextHolder.getRequestAttributes()
-        withContext(Dispatchers.IO) {
-            logger.info(" reqAttribute  " + reqAttribute)
-            logger.info(
-                "Thanks... https://www.youtube.com/watch?v=hQrFfwT1IMo&t=1514s \n" +
-                        "https://docs.spring.io/spring-framework/reference/languages/kotlin/coroutines.html")
-            client.externalUrlGet();
-        }
-    }
+    
 }
