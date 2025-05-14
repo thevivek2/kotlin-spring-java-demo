@@ -22,3 +22,6 @@ https://docs.spring.io/spring-framework/reference/languages/kotlin/coroutines.ht
 2025-03-06T14:15:55.532+05:45 TRACE 25180 --- [demo] [atcher-worker-1] com.example.demo.TraceService            : Exiting externalUrlGet  <200 OK OK,200 OK RANDOM DELAY WAS 753,[]>
 2025-03-06T14:16:04.889+05:45 TRACE 25180 --- [demo] [nio-8080-exec-4] c.e.demo.example.RequestTrackerFilter    :  **** Logging Above The Cloud *****************
 
+MORE
+[![EXAMPLE-V1](example.png)](https://youtu.be/DoihkdCkP48)
+
